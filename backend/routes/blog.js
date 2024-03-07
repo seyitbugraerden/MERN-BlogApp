@@ -2,10 +2,17 @@ const express = require("express");
 const Blog = require("../model/blog");
 const router = express.Router();
 
-// Tüm Ürünleri Alalım
 router.get("/", async (req, res) => {
   try {
     const blogs = await Blog.find();
+    res.status(200).json(blogs);
+  } catch (error) {
+    res.status(500).json("Server Status");
+  }
+});
+router.get("/:blogId", async (req, res) => {
+  try {
+    const blogs = await Blog.findById(req.params.blogId);
     res.status(200).json(blogs);
   } catch (error) {
     res.status(500).json("Server Status");
@@ -20,6 +27,27 @@ router.post("/", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+router.delete("/:blogId", async (req, res) => {
+  try {
+    const deletedBlog = await Blog.findByIdAndDelete(req.params.blogId);
+    res.status(200).json(deletedBlog);
+  } catch (error) {
+    res.status(500).json("Server Status");
+  }
+});
+router.put("/:blogId", async (req, res) => {
+  try {
+    const update = req.body;
+    const updatedBlog = await Blog.findByIdAndUpdate(
+      req.params.blogId,
+      update,
+      { news: true }
+    );
+    res.status(200).json(updatedBlog);
+  } catch (error) {
+    res.status(500).json("Server Status");
   }
 });
 

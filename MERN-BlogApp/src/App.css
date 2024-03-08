@@ -1,5 +1,6 @@
 body {
     background-color: #F1F3FF;
+    margin: 0;
 }
 
 @media(max-width:972px) {
@@ -22,11 +23,11 @@ body {
     margin: 0 auto;
 }
 
-.ant-row .ant-col:nth-child(1) {
+#main-layout .ant-row .ant-col:nth-child(1) {
     background-color: #fff;
 }
 
-.ant-row .ant-col:nth-child(3) {
+#main-layout .ant-row .ant-col:nth-child(3) {
     background-color: #fff;
     padding-bottom: 20px;
 }

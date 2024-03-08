@@ -1,0 +1,37 @@
+.blogCard {
+    padding: 40px;
+    position: static;
+}
+
+.blogCard img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blogCard h2 {
+    position: relative;
+    left: -80px;
+    background-color: white;
+    padding: 5px;
+}
+
+.blogCard p {
+    font-size: 18px;
+}
+
+.blogCard button {
+    margin-top: 30px;
+    background-color: transparent;
+    color: #2A4B7C;
+    border: 1px solid #2A4B7C;
+    outline: 0;
+    padding: 5px 10px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.blogCard button:hover {
+    background-color: #2A4B7C;
+    color: white;
+}

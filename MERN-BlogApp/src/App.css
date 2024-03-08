@@ -1,9 +1,16 @@
 body {
     background-color: #F1F3FF;
-    overflow: hidden;
 }
 
 .container {
     max-width: 60vw;
     margin: 0 auto;
+}
+
+.ant-row .ant-col:nth-child(1) {
+    background-color: #fff;
+}
+
+.ant-row .ant-col:nth-child(3) {
+    background-color: #fff;
 }

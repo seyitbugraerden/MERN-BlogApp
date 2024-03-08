@@ -1,9 +1,10 @@
 .personelCard {
-    background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 95vh;
+    position: sticky;
+    top: 15px;
 }
 
 .personelCard div:nth-child(1) {
@@ -48,5 +49,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 50px;
+    padding-bottom: 20px;
 }

@@ -12,6 +12,7 @@ const connect = async () => {
     await mongoose.connect(process.env.MONGO_URL);
     console.log("Mongo.db'ye bağlandı.");
   } catch (error) {
+    console.log("Mongo.db'ye bağlanmadı.")
     throw error;
   }
 };

@@ -6,11 +6,11 @@ function blogCard() {
   return (
     <div className="blogCard">
       <Row>
-        <Col span={8}>
+        <Col xs={24} md={8}>
           <img src="https://picsum.photos/200/300" alt="" />
         </Col>
-        <Col span={1}></Col>
-        <Col span={15}>
+        <Col xs={0} md={1}></Col>
+        <Col xs={24} md={15}>
           <h2>Lorem ipsum dolor sit amet.</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.

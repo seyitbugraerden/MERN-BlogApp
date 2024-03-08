@@ -2,6 +2,21 @@ body {
     background-color: #F1F3FF;
 }
 
+@media(max-width:972px) {
+    body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 90vw !important;
+    }
+
+    .personelCard {
+        height: 80vh !important;
+    }
+}
+
 .container {
     max-width: 60vw;
     margin: 0 auto;
@@ -13,4 +28,5 @@ body {
 
 .ant-row .ant-col:nth-child(3) {
     background-color: #fff;
+    padding-bottom: 20px;
 }

@@ -1,0 +1,52 @@
+.personelCard {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.personelCard div:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 20px;
+    gap: 5px;
+}
+
+.personelCard img {
+    width: 200px;
+    border-radius: 50%;
+    border: 30px solid #2A4B7C;
+}
+
+.personelCard h1 {
+    text-align: center;
+}
+
+.personelCard p {
+    font-size: 20px;
+    text-align: justify;
+}
+
+.personelCard i {
+    font-size: 18px;
+    border: 2px solid #2A4B7C;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.personelCard i:hover {
+    background-color: #2A4B7C;
+    color: white;
+}
+
+.personelCard div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}

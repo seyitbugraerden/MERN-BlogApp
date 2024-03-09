@@ -1,9 +1,11 @@
 import React from "react";
-import LoginRegister from "../components/login/loginRegister";
+import LoginPage from "../components/loginPage/loginPage";
+import RegisterPage from "../components/registerPage/registerPage";
 function SignLayout() {
   return (
     <div>
-      <LoginRegister />
+      {/* <LoginPage /> */}
+      <RegisterPage />
     </div>
   );
 }

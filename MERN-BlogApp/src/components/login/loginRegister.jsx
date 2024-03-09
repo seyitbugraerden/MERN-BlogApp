@@ -11,8 +11,8 @@ function loginRegister() {
   };
   return (
     <div className="loginArea">
-      <h2>Giriş Yap</h2>
-      <p>Lütfen devam etmek için giriş yapın.</p>
+      <h2 style={{ fontSize: "16px" }}>Giriş Yap</h2>
+      <p style={{ fontSize: "14px" }}>Lütfen devam etmek için giriş yapın.</p>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -43,7 +43,6 @@ function loginRegister() {
           <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
             Giriş Yap
           </Button>
-
           <p
             style={{
               textAlign: "center ",

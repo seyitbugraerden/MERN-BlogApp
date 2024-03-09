@@ -86,7 +86,6 @@ function RegisterPage() {
           rules={[
             {
               required: true,
-              message: "Lütfen geçerli bir doğum tarihi giriniz.",
             },
             { validator: validateDOB },
           ]}
@@ -111,7 +110,12 @@ function RegisterPage() {
         >
           <Input.Password />
         </Form.Item>
-        <Form.Item label="Avatar Image" name="image">
+
+        <Form.Item
+          label="Avatar Image"
+          name="image"
+          rules={[{ required: true }]}
+        >
           <Upload
             accept=".png,.jpeg,.jpg"
             name="avatar"

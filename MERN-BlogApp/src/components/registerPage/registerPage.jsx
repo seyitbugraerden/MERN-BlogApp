@@ -46,7 +46,7 @@ function RegisterPage() {
           rules={[
             {
               required: true,
-              message: "Lütfen geçerli bir kullanıcı adı giriniz.",
+              message: "Lütfen geçerli bir ad soyad giriniz.",
             },
           ]}
         >
@@ -86,6 +86,7 @@ function RegisterPage() {
           rules={[
             {
               required: true,
+              message: "Lütfen geçerli bir doğum tarihi giriniz.",
             },
             { validator: validateDOB },
           ]}
@@ -106,7 +107,7 @@ function RegisterPage() {
         <Form.Item
           label="Şifre (Tekrar)"
           name="passwordCheck"
-          rules={[{ required: true, message: "Şifrenizi Doğrulayın." }]}
+          rules={[{ required: true, message: "Lütfen Şifrenizi Doğrulayın." }]}
         >
           <Input.Password />
         </Form.Item>
@@ -114,7 +115,12 @@ function RegisterPage() {
         <Form.Item
           label="Avatar Image"
           name="image"
-          rules={[{ required: true }]}
+          rules={[
+            {
+              required: true,
+              message: "Lütfen geçerli bir avatar image ekleyiniz.",
+            },
+          ]}
         >
           <Upload
             accept=".png,.jpeg,.jpg"
@@ -124,6 +130,19 @@ function RegisterPage() {
           >
             <Button>+</Button>
           </Upload>
+        </Form.Item>
+
+        <Form.Item
+          label="Hakkımda"
+          name="aboutme"
+          rules={[
+            {
+              required: true,
+              message: "Lütfen geçerli bir hakkımda yazısı yazınız.",
+            },
+          ]}
+        >
+          <Input.TextArea />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 0, span: 24 }}>

@@ -16,11 +16,11 @@ function personelCard() {
         </p>
       </div>
       <div>
-        <i class="bi bi-facebook"></i>
-        <i class="bi bi-twitter-x"></i>
-        <i class="bi bi-linkedin"></i>
-        <i class="bi bi-instagram"></i>
-        <i class="bi bi-threads"></i>
+        <i className="bi bi-facebook"></i>
+        <i className="bi bi-twitter-x"></i>
+        <i className="bi bi-linkedin"></i>
+        <i className="bi bi-instagram"></i>
+        <i className="bi bi-threads"></i>
       </div>
     </div>
   );

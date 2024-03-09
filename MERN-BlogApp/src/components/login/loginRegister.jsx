@@ -26,7 +26,12 @@ function loginRegister() {
         <Form.Item
           label="Kullanıcı Adı"
           name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          rules={[
+            {
+              required: true,
+              message: "Lütfen geçerli bir kullanıcı adı giriniz.",
+            },
+          ]}
         >
           <Input />
         </Form.Item>
@@ -34,7 +39,9 @@ function loginRegister() {
         <Form.Item
           label="Şifre"
           name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          rules={[
+            { required: true, message: "Lütfen geçerli bir şifre giriniz." },
+          ]}
         >
           <Input.Password />
         </Form.Item>

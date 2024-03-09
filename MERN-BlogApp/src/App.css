@@ -50,3 +50,12 @@ body {
 .loginArea p {
     margin-bottom: 20px;
 }
+
+.loginArea .ant-form-item-explain-error {
+    font-size: 10px;
+}
+
+.loginArea .ant-form-item-label>label {
+    font-size: 12px;
+    text-align: start;
+}

@@ -41,7 +41,7 @@ function RegisterPage() {
         autoComplete="off"
       >
         <Form.Item
-          label="Ad Soyad"
+          label="Ad ve Soyad"
           name="fullname"
           rules={[
             {

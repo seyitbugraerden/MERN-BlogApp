@@ -1,22 +1,17 @@
-import { Button, Form, Input } from "antd";
-import React, { useEffect } from "react";
-import axios from "axios";
+import { Button, Form, Input, message } from "antd";
+import { useState } from "react";
 
 function LoginRegister() {
-  useEffect(() => {
-    savedUsers();
-  }, []);
-
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+  });
   const onFinish = (values) => {
     console.log("Success:", values);
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
-  };
-
-  const savedUsers = () => {
-    axios.get("http://localhost:5000/api/user").then((res) => console.log(res));
   };
 
   return (
@@ -29,8 +24,17 @@ function LoginRegister() {
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinish={(values) => {
+          console.log(values);
+          message.success("Giriş Başarılı");
+          setUser({
+            username: values.username,
+            password: values.password,
+          });
+        }}
+        onFinishFailed={() => {
+          message.error("Giriş Başarısız");
+        }}
         autoComplete="off"
       >
         <Form.Item

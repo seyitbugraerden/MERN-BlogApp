@@ -7,11 +7,6 @@ body {
 }
 
 @media (max-width: 972px) {
-  body {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
   .container {
     max-width: 90vw !important;
   }
@@ -32,7 +27,7 @@ body {
 
 .container .ant-row .ant-col:nth-child(3) {
   background-color: #fff;
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
 .loginArea {
@@ -61,6 +56,7 @@ body {
   font-size: 12px;
   text-align: start;
 }
+
 #blog-detail {
   padding: 20px 20px;
 }

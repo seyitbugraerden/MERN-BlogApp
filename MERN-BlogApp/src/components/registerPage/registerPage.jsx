@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, DatePicker, Form, Input, Upload } from "antd";
+import { Link } from "react-router-dom";
 function calculateAge(birthday) {
   const ageDifferenceMs = Date.now() - birthday.getTime();
   const ageDate = new Date(ageDifferenceMs);
@@ -145,10 +146,14 @@ function RegisterPage() {
           <Input.TextArea />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
+        <Form.Item wrapperCol={{ offset: 0, span: 24 }} style={{textAlign: 'center'}}>
           <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
             Üye ol
           </Button>
+          Hesabın var mı?{" "}
+          <span stlye={{ fontWeight: "bold",}}>
+            <Link to="/">Giriş Yap</Link>{" "}
+          </span>
         </Form.Item>
       </Form>
     </div>

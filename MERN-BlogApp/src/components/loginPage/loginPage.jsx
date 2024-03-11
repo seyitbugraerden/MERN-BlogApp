@@ -1,7 +1,12 @@
 import { Button, Form, Input } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 
-function loginRegister() {
+function LoginRegister() {
+  useEffect(() => {
+    savedUsers();
+  }, []);
+
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -9,6 +14,11 @@ function loginRegister() {
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
+  const savedUsers = () => {
+    axios.get("http://localhost:5000/api/user").then((res) => console.log(res));
+  };
+
   return (
     <div className="loginArea">
       <h2 style={{ fontSize: "16px" }}>Giriş Yap</h2>
@@ -58,7 +68,7 @@ function loginRegister() {
             }}
           >
             Hesabın yok mu?{" "}
-            <span stlye={{ fontWeight: "bold" }}>
+            <span style={{ fontWeight: "bold" }}>
               <a>ÜYE OL</a>{" "}
             </span>
           </p>
@@ -68,4 +78,4 @@ function loginRegister() {
   );
 }
 
-export default loginRegister;
+export default LoginRegister;

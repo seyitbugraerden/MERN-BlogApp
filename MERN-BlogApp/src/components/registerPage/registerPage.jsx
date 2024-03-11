@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, DatePicker, Form, Input, Upload } from "antd";
 import { Link } from "react-router-dom";
+import axios from "axios";
 function calculateAge(birthday) {
   const ageDifferenceMs = Date.now() - birthday.getTime();
   const ageDate = new Date(ageDifferenceMs);
@@ -8,8 +9,17 @@ function calculateAge(birthday) {
 }
 
 function RegisterPage() {
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const onFinish = async (values) => {
+    try {
+      const response = await axios.post("http://localhost:5000/api/user", {
+        ...values,
+        socialLinks: { facebook: "123.com" },
+      });
+      console.log("Response:", response.data);
+      console.log("OK");
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -83,7 +93,7 @@ function RegisterPage() {
 
         <Form.Item
           label="Doğum Tarihi"
-          name="dob"
+          name="birthday"
           rules={[
             {
               required: true,
@@ -105,20 +115,20 @@ function RegisterPage() {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item
+         <Form.Item
           label="Şifre (Tekrar)"
           name="passwordCheck"
           rules={[{ required: true, message: "Lütfen Şifrenizi Doğrulayın." }]}
         >
           <Input.Password />
-        </Form.Item>
+        </Form.Item> 
 
         <Form.Item
           label="Avatar Image"
           name="image"
           rules={[
             {
-              required: true,
+              required: false,
               message: "Lütfen geçerli bir avatar image ekleyiniz.",
             },
           ]}
@@ -146,12 +156,15 @@ function RegisterPage() {
           <Input.TextArea />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 0, span: 24 }} style={{textAlign: 'center'}}>
+        <Form.Item
+          wrapperCol={{ offset: 0, span: 24 }}
+          style={{ textAlign: "center" }}
+        >
           <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
             Üye ol
           </Button>
           Hesabın var mı?{" "}
-          <span stlye={{ fontWeight: "bold",}}>
+          <span stlye={{ fontWeight: "bold" }}>
             <Link to="/">Giriş Yap</Link>{" "}
           </span>
         </Form.Item>

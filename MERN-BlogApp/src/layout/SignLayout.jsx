@@ -4,7 +4,7 @@ import RegisterPage from "../components/registerPage/registerPage";
 function SignLayout() {
   return (
     <div>
-      {/* <LoginPage /> */}
+      <LoginPage />
       <RegisterPage />
     </div>
   );

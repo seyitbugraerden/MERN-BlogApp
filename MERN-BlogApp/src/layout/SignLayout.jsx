@@ -5,7 +5,7 @@ function SignLayout() {
   return (
     <div>
       <LoginPage />
-      <RegisterPage />
+      {/* <RegisterPage /> */}
     </div>
   );
 }

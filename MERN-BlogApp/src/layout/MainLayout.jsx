@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Col } from "antd";
 import { Pagination } from "antd";
 import PersonelCard from "../components/personelCard/personelCard";
-import Swiper from "../components/swiperArea/swiper";
+import Swiper from "../components/swiper/swiper";
 import BlogCard from "../components/blogCard/blogCard";
 
 const blogData = [

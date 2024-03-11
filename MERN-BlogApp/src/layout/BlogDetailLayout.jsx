@@ -14,10 +14,10 @@ function BlogDetailLayout() {
           <div className="img-area">
             <div className="text-area">
               <h2>Lorem ipsum dolor sit amet.</h2>
+              <p>12.07.1997</p>
             </div>
-            <img src="https://picsum.photos/200/300" alt="" />
+            <img src="https://picsum.photos/200/300" alt="BlogImage" />
           </div>
-
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta et
             sint enim porro incidunt perferendis itaque vitae non voluptates
@@ -42,7 +42,8 @@ function BlogDetailLayout() {
             quisquam laudantium explicabo odio. Optio nam a eligendi doloremque
             at perspiciatis nisi incidunt tenetur, quis similique assumenda.
             Recusandae?
-          </p> <br />
+          </p>{" "}
+          <br />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Dignissimos quaerat eius tenetur id excepturi eligendi ad enim
@@ -67,7 +68,8 @@ function BlogDetailLayout() {
             temporibus provident! Unde fugit maiores cumque deleniti architecto.
             Porro praesentium, quidem laboriosam qui dolore possimus natus harum
             veniam, dicta aut voluptates dolorem et unde eum excepturi quas.
-          </p> <br />
+          </p>{" "}
+          <br />
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
             fugiat vero doloribus cumque accusamus, voluptas quisquam provident

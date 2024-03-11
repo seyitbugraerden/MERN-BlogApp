@@ -82,6 +82,12 @@ body {
   color: white;
   z-index: 9;
 }
+#blog-detail .img-area .text-area h2 {
+  margin: 0;
+}
+#blog-detail .img-area .text-area p {
+  text-align: center;
+}
 #blog-detail p {
   text-align: justify;
 }

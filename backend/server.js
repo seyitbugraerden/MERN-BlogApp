@@ -17,9 +17,11 @@ const connect = async () => {
     throw error;
   }
 };
+
+app.use(cors());
 app.use(express.json());
 app.use("/api", mainRoute);
-app.use(cors());
+
 app.listen(port, () => {
   connect();
   console.log(`Server is running on port ${port}`);

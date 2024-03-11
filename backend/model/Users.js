@@ -9,13 +9,11 @@ const UserSchema = mongoose.Schema(
     password: { type: String, required: true },
     image: { type: Buffer },
     aboutme: { type: String, required: true },
-    socialLinks: {
-      facebook: { type: String, required: false },
-      twitter: { type: String, required: false },
-      linkedin: { type: String, required: false },
-      instagram: { type: String, required: false },
-      threads: { type: String, required: false },
-    },
+    facebook: { type: String, required: false },
+    twitter: { type: String, required: false },
+    linkedin: { type: String, required: false },
+    instagram: { type: String, required: false },
+    threads: { type: String, required: false },
   },
   { timestamps: true }
 );

@@ -1,10 +1,12 @@
+import BlogDetailLayout from "./layout/BlogDetailLayout";
 import MainLayout from "./layout/MainLayout";
 import SignLayout from "./layout/SignLayout";
 
 function App() {
   return (
     <>
-       <MainLayout />
+      <BlogDetailLayout />
+      {/* <MainLayout /> */}
       {/* <SignLayout /> */}
     </>
   );

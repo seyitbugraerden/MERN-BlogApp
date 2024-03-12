@@ -1,18 +1,31 @@
 import { Button, Form, Input, message } from "antd";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 function LoginRegister() {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+  const [savedUsers, setSavedUsers] = useState([]);
 
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
+  axios
+    .get("http://localhost:5000/api/user")
+    .then((res) => setSavedUsers(res.data));
+
+  useEffect(() => {
+    const matchedElement = () => {
+      savedUsers.filter((item) => {
+        if (item.username === user.username && item.password === user.password) {
+          message.success("Giriş Başarılı");
+          localStorage.setItem("user",JSON.stringify(user))
+        }
+        else {
+          message.error("Kullanıcı Adı veya Şifre Hatalı")
+        }
+      });
+    };
+    matchedElement();
+  }, [user]);
 
   return (
     <div className="loginArea">
@@ -25,12 +38,11 @@ function LoginRegister() {
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={(values) => {
-          console.log(values);
-          message.success("Giriş Başarılı");
           setUser({
             username: values.username,
             password: values.password,
           });
+          localStorage.setItem("user", JSON.stringify(user));
         }}
         onFinishFailed={() => {
           message.error("Giriş Başarısız");

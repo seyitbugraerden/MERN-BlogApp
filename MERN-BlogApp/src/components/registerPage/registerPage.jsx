@@ -10,11 +10,12 @@ function calculateAge(birthday) {
 
 function RegisterPage() {
   const onFinish = async (values) => {
+    console.log(values);
     try {
-      const response = await axios.post("http://localhost:5000/api/user", {
-        ...values,
-        socialLinks: { facebook: "123.com" },
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/user",
+        values
+      );
       console.log("Response:", response.data);
       console.log("OK");
     } catch (error) {
@@ -115,16 +116,16 @@ function RegisterPage() {
           <Input.Password />
         </Form.Item>
 
-         <Form.Item
+        <Form.Item
           label="Şifre (Tekrar)"
           name="passwordCheck"
           rules={[{ required: true, message: "Lütfen Şifrenizi Doğrulayın." }]}
         >
           <Input.Password />
-        </Form.Item> 
+        </Form.Item>
 
         <Form.Item
-          label="Avatar Image"
+          label="Avatar ImageLink "
           name="image"
           rules={[
             {
@@ -133,14 +134,15 @@ function RegisterPage() {
             },
           ]}
         >
-          <Upload
+          <Input />
+          {/* <Upload
             accept=".png,.jpeg,.jpg"
             name="avatar"
             listType="picture"
             maxCount={1}
           >
             <Button>+</Button>
-          </Upload>
+          </Upload> */}
         </Form.Item>
 
         <Form.Item
@@ -156,6 +158,75 @@ function RegisterPage() {
           <Input.TextArea />
         </Form.Item>
 
+        <Form.Item
+          label="Facebook"
+          name="facebook"
+          rules={[
+            {
+              type: "url",
+              required: false,
+              message: "Lütfen geçerli bir Facebook linki giriniz.",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Instagram"
+          name="instagram"
+          rules={[
+            {
+              type: "url",
+              required: false,
+              message: "Lütfen geçerli bir Instagram linki giriniz.",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Twitter"
+          name="twitter"
+          rules={[
+            {
+              type: "url",
+              required: false,
+              message: "Lütfen geçerli bir Facebook linki giriniz.",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Linkedin"
+          name="linkedin"
+          rules={[
+            {
+              type: "url",
+              required: false,
+              message: "Lütfen geçerli bir Linkedin linki giriniz.",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Threads"
+          name="threads"
+          rules={[
+            {
+              type: "url",
+              required: null,
+              message: "Lütfen geçerli bir Threads linki giriniz.",
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
         <Form.Item
           wrapperCol={{ offset: 0, span: 24 }}
           style={{ textAlign: "center" }}

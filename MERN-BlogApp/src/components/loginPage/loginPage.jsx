@@ -7,7 +7,6 @@ function LoginRegister() {
     password: "",
   });
   const [savedUsers, setSavedUsers] = useState([]);
-
   axios
     .get("http://localhost:5000/api/user")
     .then((res) => setSavedUsers(res.data));
@@ -15,12 +14,14 @@ function LoginRegister() {
   useEffect(() => {
     const matchedElement = () => {
       savedUsers.filter((item) => {
-        if (item.username === user.username && item.password === user.password) {
+        if (
+          item.username === user.username &&
+          item.password === user.password
+        ) {
           message.success("Giriş Başarılı");
-          localStorage.setItem("user",JSON.stringify(user))
-        }
-        else {
-          message.error("Kullanıcı Adı veya Şifre Hatalı")
+          localStorage.setItem("user", JSON.stringify(user));
+        } else {
+          message.error("Kullanıcı Adı veya Şifre Hatalı");
         }
       });
     };
@@ -45,7 +46,7 @@ function LoginRegister() {
           localStorage.setItem("user", JSON.stringify(user));
         }}
         onFinishFailed={() => {
-          message.error("Giriş Başarısız");
+          message.error("Eksik Veri Girdiniz");
         }}
         autoComplete="off"
       >
@@ -85,7 +86,7 @@ function LoginRegister() {
           >
             Hesabın yok mu?{" "}
             <span style={{ fontWeight: "bold" }}>
-              <a>ÜYE OL</a>{" "}
+              <a to="/register">ÜYE OL</a>{" "}
             </span>
           </p>
         </Form.Item>

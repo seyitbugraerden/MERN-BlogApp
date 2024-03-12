@@ -9,7 +9,6 @@ function calculateAge(birthday) {
 }
 
 function RegisterPage() {
-  const [form] = Form.useForm(); // Add this line to use form instance
   const onFinish = async (values) => {
     console.log(values);
     try {
@@ -236,8 +235,8 @@ function RegisterPage() {
             Üye ol
           </Button>
           Hesabın var mı?{" "}
-          <span stlye={{ fontWeight: "bold" }}>
-            <Link to="/">Giriş Yap</Link>{" "}
+          <span stlye={{ fontWeight: "bold" }}  >
+            Giriş Yap
           </span>
         </Form.Item>
       </Form>

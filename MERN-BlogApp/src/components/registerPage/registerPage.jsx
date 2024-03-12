@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, DatePicker, Form, Input, Upload } from "antd";
+import { Button, DatePicker, Form, Input, Upload, message } from "antd";
 import { Link } from "react-router-dom";
 import axios from "axios";
 function calculateAge(birthday) {
@@ -9,6 +9,7 @@ function calculateAge(birthday) {
 }
 
 function RegisterPage() {
+  const [form] = Form.useForm(); // Add this line to use form instance
   const onFinish = async (values) => {
     console.log(values);
     try {
@@ -16,8 +17,8 @@ function RegisterPage() {
         "http://localhost:5000/api/user",
         values
       );
-      console.log("Response:", response.data);
-      console.log("OK");
+      message.success("Kayıt Oldunuz")
+      form.resetFields()
     } catch (error) {
       console.error("Error:", error);
     }

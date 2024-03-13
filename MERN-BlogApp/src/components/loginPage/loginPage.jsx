@@ -26,7 +26,7 @@ function LoginRegister() {
         if (item.password !== user.password && item.username !== user.username) {
           message.error("Kullanıcı Adı ve Şifre Hatalı");
         }
-        if(item.username !== user.username){
+        if(item.username !== user.username && item.password === user.password){
           message.error("Kullanıcı Adı Hatalı")
         }
       });

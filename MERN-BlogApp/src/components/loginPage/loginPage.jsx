@@ -1,6 +1,7 @@
 import { Button, Form, Input, message } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function LoginRegister() {
   const [user, setUser] = useState({
     username: "",
@@ -85,9 +86,9 @@ function LoginRegister() {
             }}
           >
             Hesabın yok mu?{" "}
-            <span style={{ fontWeight: "bold" }}>
-              <a to="/register">ÜYE OL</a>{" "}
-            </span>
+            <Link to="/register" style={{ fontWeight: "bold" }}>
+              ÜYE OL
+            </Link>
           </p>
         </Form.Item>
       </Form>

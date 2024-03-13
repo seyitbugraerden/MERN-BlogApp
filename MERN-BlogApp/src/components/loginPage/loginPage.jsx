@@ -15,14 +15,15 @@ function LoginRegister() {
   useEffect(() => {
     const matchedElement = () => {
       savedUsers.filter((item) => {
-        if (
-          item.username === user.username &&
-          item.password === user.password
-        ) {
-          message.success("Giriş Başarılı");
-          localStorage.setItem("user", JSON.stringify(user));
+        if (item.username === user.username) {
+          if (item.password === user.password) {
+            message.success("Giriş Başarılı");
+            localStorage.setItem("user", JSON.stringify(user));
+          } else {
+            message.error("Şifreniz hatalı");
+          }
         } else {
-          message.error("Kullanıcı Adı veya Şifre Hatalı");
+          message.error("Kullanıcı Adı Hatalı");
         }
       });
     };

@@ -22,8 +22,12 @@ function LoginRegister() {
           } else {
             message.error("Şifreniz hatalı");
           }
-        } else {
-          message.error("Kullanıcı Adı Hatalı");
+        }
+        if (item.password !== user.password && item.username !== user.username) {
+          message.error("Kullanıcı Adı ve Şifre Hatalı");
+        }
+        if(item.username !== user.username){
+          message.error("Kullanıcı Adı Hatalı")
         }
       });
     };

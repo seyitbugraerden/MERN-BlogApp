@@ -9,7 +9,7 @@ import {
   Upload,
   message,
 } from "antd";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 function calculateAge(birthday) {
   const ageDifferenceMs = Date.now() - birthday.getTime();
@@ -18,15 +18,17 @@ function calculateAge(birthday) {
 }
 
 function RegisterPage() {
+  const navigate = useNavigate()
   const onFinish = async (values) => {
-    console.log(values);
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user",
         values
       );
       message.success("Kayıt Oldunuz");
-      form.resetFields();
+      setTimeout(() => {
+        navigate("/login");;
+      }, 1000);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -48,13 +50,11 @@ function RegisterPage() {
   return (
     <div className="loginArea">
       <h2 style={{ fontSize: "16px" }}>Üye Ol</h2>
-      <p style={{ fontSize: "14px" }}>
-        Lütfen devam etmek için üye olun.
-      </p>
+      <p style={{ fontSize: "14px" }}>Lütfen devam etmek için üye olun.</p>
       <Form
         name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
+        labelCol={{ span: 10 }}
+        wrapperCol={{ span: 14 }}
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
@@ -62,7 +62,7 @@ function RegisterPage() {
         autoComplete="off"
       >
         <Row>
-          <Col span={12}>
+          <Col md={12} xs={24}>
             <Form.Item
               label="Ad ve Soyad"
               name="fullname"
@@ -153,7 +153,7 @@ function RegisterPage() {
               <Input />
             </Form.Item>
           </Col>
-          <Col span={12}>
+          <Col md={12} xs={24}>
             <Form.Item
               label="ImageLink "
               name="image"

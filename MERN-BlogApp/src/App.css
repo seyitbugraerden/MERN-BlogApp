@@ -88,3 +88,4 @@ body {
 #blog-detail p {
   text-align: justify;
 }
+.ant-col{overflow: hidden;}

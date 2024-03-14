@@ -3,9 +3,26 @@
     flex-direction: column;
     justify-content: space-between;
     height: 95vh;
-    position: fixed;
-    top: 15px;
-    width: 17.8vw;
+
+}
+
+@media(min-width:972px) {
+    .personelCard {
+        position: fixed;
+        top: 15px;
+        width: 17.8vw;
+    }
+}
+
+@media(max-width:972px) {
+    .mySwiper .mySwiperText h2 {
+        font-size: 24px !important;
+        width: 60vw !important;
+    }
+
+    .blogCard {
+        padding: 0px !important;
+    }
 }
 
 .personelCard div:nth-child(1) {

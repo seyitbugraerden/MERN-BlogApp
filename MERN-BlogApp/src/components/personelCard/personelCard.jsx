@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../personelCard/personelCard.css";
 import axios from "axios";
+import { Flex } from "antd";
 
 function PersonelCard() {
   const [logIn, setLogIn] = useState({});

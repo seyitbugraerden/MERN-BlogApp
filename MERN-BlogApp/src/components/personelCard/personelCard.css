@@ -3,8 +3,9 @@
     flex-direction: column;
     justify-content: space-between;
     height: 95vh;
-    position: sticky;
+    position: fixed;
     top: 15px;
+    width: 17.8vw;
 }
 
 .personelCard div:nth-child(1) {

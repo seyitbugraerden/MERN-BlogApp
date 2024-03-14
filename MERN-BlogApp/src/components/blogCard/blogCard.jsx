@@ -11,14 +11,13 @@ function blogCard({ id, title, description, createdAt }) {
         </Col>
         <Col xs={0} md={1}></Col>
         <Col xs={24} md={15}>
-          <h2>Lorem ipsum dolor sit amet.</h2>
+          <h2>{title}</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Asperiores, beatae.
+            {description}
           </p>
           <button
             onClick={() => {
-              window.location.href = `/detay/${key}`;
+              window.location.href = `/detay/${id}`;
             }}
           >
             Read More

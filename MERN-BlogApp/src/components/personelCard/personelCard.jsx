@@ -31,7 +31,6 @@ function PersonelCard() {
           alt=""
         />
         <h1>{logIn.fullname}</h1>{" "}
-        {/* Assuming 'name' is a property of the user object */}
         <p>{logIn.aboutme}</p>
       </div>
       <div>

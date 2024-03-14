@@ -5,6 +5,7 @@ const BlogSchema = mongoose.Schema(
     username: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: true },
+    img: { type: String, required: false },
   },
   { timestamps: true }
 );

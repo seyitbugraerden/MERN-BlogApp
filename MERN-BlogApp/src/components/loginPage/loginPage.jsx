@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, message } from "antd";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LoginRegister() {
   const [user, setUser] = useState({
@@ -9,12 +9,12 @@ function LoginRegister() {
     password: "",
   });
   const [savedUsers, setSavedUsers] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/user")
-      .then(res => setSavedUsers(res.data))
-      .catch(error => console.error("Error fetching users:", error));
+    axios
+      .get("http://localhost:5000/api/user")
+      .then((res) => setSavedUsers(res.data))
+      .catch((error) => console.error("Error fetching users:", error));
   }, []);
 
   const onFinish = (values) => {
@@ -23,12 +23,17 @@ function LoginRegister() {
       password: values.password,
     });
 
-    const matchedUser = savedUsers.find(item => item.username === values.username && item.password === values.password);
+    const matchedUser = savedUsers.find(
+      (item) =>
+        item.username === values.username && item.password === values.password
+    );
 
     if (matchedUser) {
       message.success("Giriş Başarılı");
       localStorage.setItem("user", JSON.stringify(matchedUser._id));
-      navigate("/");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 500);
     } else {
       message.error("Kullanıcı Adı veya Şifre Hatalı");
     }

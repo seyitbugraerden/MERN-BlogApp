@@ -1,38 +1,32 @@
 import { Button, Form, Input, message } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 function LoginRegister() {
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
   const [savedUsers, setSavedUsers] = useState([]);
-  axios
-    .get("http://localhost:5000/api/user")
-    .then((res) => setSavedUsers(res.data));
+  const navigate = useNavigate();
+
 
   useEffect(() => {
-    const matchedElement = () => {
-      savedUsers.filter((item) => {
-        if (item.username === user.username) {
-          if (item.password === user.password) {
-            message.success("Giriş Başarılı");
-            localStorage.setItem("user", JSON.stringify(item._id));
-          } else {
-            message.error("Şifreniz hatalı");
-          }
-        }
-        if (item.password !== user.password && item.username !== user.username) {
-          message.error("Kullanıcı Adı ve Şifre Hatalı");
-        }
-        if(item.username !== user.username && item.password === user.password){
-          message.error("Kullanıcı Adı Hatalı")
-        }
-      });
-    };
-    matchedElement();
-  }, [user]);
+    axios.get("http://localhost:5000/api/user")
+      .then(res => setSavedUsers(res.data))
+      .catch(error => console.error("Error fetching users:", error));
+  }, []);
+
+  useEffect(() => {
+    const matchedUser = savedUsers.find(item => item.username === user.username && item.password === user.password);
+
+    if (matchedUser) {
+      message.success("Giriş Başarılı");
+      localStorage.setItem("user", JSON.stringify(matchedUser._id));
+      navigate("/")
+    }
+  }, [user, savedUsers]);
 
   return (
     <div className="loginArea">
@@ -49,7 +43,6 @@ function LoginRegister() {
             username: values.username,
             password: values.password,
           });
-          localStorage.setItem("user", JSON.stringify(user));
         }}
         onFinishFailed={() => {
           message.error("Eksik Veri Girdiniz");

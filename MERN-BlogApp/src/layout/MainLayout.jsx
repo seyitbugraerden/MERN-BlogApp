@@ -5,18 +5,18 @@ import PersonelCard from "../components/personelCard/personelCard";
 import Swiper from "../components/swiper/swiper";
 import BlogCard from "../components/blogCard/blogCard";
 
-const blogData = [
-  { id: 1, title: "Blog 1", content: "Content 1" },
-  { id: 2, title: "Blog 2", content: "Content 2" },
-  { id: 3, title: "Blog 3", content: "Content 3" },
-  { id: 4, title: "Blog 3", content: "Content 3" },
-  { id: 5, title: "Blog 3", content: "Content 3" },
-  { id: 6, title: "Blog 3", content: "Content 3" },
-  { id: 7, title: "Blog 3", content: "Content 3" },
-];
 
 function MainLayout() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [blogData, setBlogData] = useState([
+    { id: 1, title: "Blog 1", content: "Content 1" },
+    { id: 2, title: "Blog 2", content: "Content 2" },
+    { id: 3, title: "Blog 3", content: "Content 3" },
+    { id: 4, title: "Blog 3", content: "Content 3" },
+    { id: 5, title: "Blog 3", content: "Content 3" },
+    { id: 6, title: "Blog 3", content: "Content 3" },
+    { id: 7, title: "Blog 3", content: "Content 3" },
+  ])
   const blogCardsPerPage = 3;
   const indexOfLastBlogCard = currentPage * blogCardsPerPage;
   const indexOfFirstBlogCard = indexOfLastBlogCard - blogCardsPerPage;

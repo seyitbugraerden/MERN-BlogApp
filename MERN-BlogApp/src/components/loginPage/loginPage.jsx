@@ -18,7 +18,7 @@ function LoginRegister() {
         if (item.username === user.username) {
           if (item.password === user.password) {
             message.success("Giriş Başarılı");
-            localStorage.setItem("user", JSON.stringify(user));
+            localStorage.setItem("user", JSON.stringify(item._id));
           } else {
             message.error("Şifreniz hatalı");
           }

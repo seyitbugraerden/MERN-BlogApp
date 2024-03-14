@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 import React from "react";
 import "./blogCard.css";
 
-function blogCard({ key }) {
+function blogCard({ id, title, description, createdAt }) {
   return (
     <div className="blogCard">
       <Row>

@@ -11,9 +11,15 @@
 
 .blogCard h2 {
     position: relative;
-    left: -80px;
     background-color: white;
-    padding: 5px;
+}
+
+.blogCard p {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 @media(max-width:972px) {

@@ -31,7 +31,7 @@ function swiper() {
               window.location.href = `/detay/${blogData[0]?._id}`;
             }}
           >
-            Read More
+            Devamını Oku
           </button>
         </div>
       </SwiperSlide>

@@ -14,8 +14,15 @@ function MainLayout() {
     const fetchItems = () => {
       axios
         .get("http://localhost:5000/api/blog")
-        .then((res) => setBlogData(res.data));
+        .then((res) => {
+          const reversedData = res.data.reverse();
+          setBlogData(reversedData);
+        })
+        .catch((error) => {
+          console.error("Error fetching blog data:", error);
+        });
     };
+
     fetchItems();
   }, []);
 

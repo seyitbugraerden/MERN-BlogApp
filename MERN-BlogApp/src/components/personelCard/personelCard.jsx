@@ -40,7 +40,7 @@ function PersonelCard() {
           target="_blank"
           style={{
             color: "inherit",
-            display: logIn.facebook === "" && "none",
+            display: logIn.facebook === undefined && "none",
           }}
           href={logIn.facebook}
         >
@@ -48,14 +48,20 @@ function PersonelCard() {
         </a>
         <a
           target="_blank "
-          style={{ color: "inherit", display: logIn.twitter !== "" && "none" }}
+          style={{
+            color: "inherit",
+            display: logIn.twitter === undefined && "none",
+          }}
           href={logIn.twitter}
         >
           <i className="bi bi-twitter-x"></i>
         </a>
         <a
           target="_blank "
-          style={{ color: "inherit", display: logIn.linkedin !== "" && "none" }}
+          style={{
+            color: "inherit",
+            display: logIn.linkedin === undefined && "none",
+          }}
           href={logIn.linkedin}
         >
           <i className="bi bi-linkedin"></i>
@@ -64,7 +70,7 @@ function PersonelCard() {
           target="_blank "
           style={{
             color: "inherit",
-            display: logIn.instagram !== "" && "none",
+            display: logIn.instagram === undefined && "none",
           }}
           href={logIn.instagram}
         >
@@ -74,7 +80,7 @@ function PersonelCard() {
           target="_blank "
           style={{
             color: "inherit",
-            display: logIn.threads !== "" && "none",
+            display: logIn.threads === undefined && "none",
           }}
           href={logIn.threads}
         >

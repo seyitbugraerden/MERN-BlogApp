@@ -27,10 +27,7 @@ function PersonelCard() {
   return (
     <div className="personelCard">
       <div>
-        <img
-          src="https://demo.htmlcodex.com/1049/personal-blog-template/img/profile.jpg"
-          alt=""
-        />
+        <img src={logIn.image} alt="" />
         <h1>{logIn.fullname}</h1> <p>{logIn.aboutme}</p>
       </div>
       <div>

@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 import React from "react";
 import "./blogCard.css";
 
-function blogCard() {
+function blogCard({ key }) {
   return (
     <div className="blogCard">
       <Row>
@@ -16,7 +16,13 @@ function blogCard() {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Asperiores, beatae.
           </p>
-          <button>Read More</button>
+          <button
+            onClick={() => {
+              window.location.href = `/detay/${key}`;
+            }}
+          >
+            Read More
+          </button>
         </Col>
       </Row>
     </div>

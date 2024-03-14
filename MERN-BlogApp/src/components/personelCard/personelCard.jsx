@@ -41,7 +41,7 @@ function PersonelCard() {
             window.location.href = "/admin";
           }}
         >
-          <i class="bi bi-person"></i>
+          <i className="bi bi-person"></i>
         </a>
         <a
           target="_blank"
@@ -102,7 +102,7 @@ function PersonelCard() {
             window.location.href = "/";
           }}
         >
-          <i class="bi bi-box-arrow-right"></i>
+          <i className="bi bi-box-arrow-right"></i>
         </a>
       </div>
     </div>

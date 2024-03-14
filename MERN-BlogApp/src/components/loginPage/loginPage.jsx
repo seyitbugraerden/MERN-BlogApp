@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react";
 import { Button, Form, Input, message } from "antd";
-import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,22 +11,32 @@ function LoginRegister() {
   const [savedUsers, setSavedUsers] = useState([]);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     axios.get("http://localhost:5000/api/user")
       .then(res => setSavedUsers(res.data))
       .catch(error => console.error("Error fetching users:", error));
   }, []);
 
-  useEffect(() => {
-    const matchedUser = savedUsers.find(item => item.username === user.username && item.password === user.password);
+  const onFinish = (values) => {
+    setUser({
+      username: values.username,
+      password: values.password,
+    });
+
+    const matchedUser = savedUsers.find(item => item.username === values.username && item.password === values.password);
 
     if (matchedUser) {
       message.success("Giriş Başarılı");
       localStorage.setItem("user", JSON.stringify(matchedUser._id));
-      navigate("/")
+      navigate("/");
+    } else {
+      message.error("Kullanıcı Adı veya Şifre Hatalı");
     }
-  }, [user, savedUsers]);
+  };
+
+  const onFinishFailed = () => {
+    message.error("Eksik Veri Girdiniz");
+  };
 
   return (
     <div className="loginArea">
@@ -38,15 +48,8 @@ function LoginRegister() {
         wrapperCol={{ span: 16 }}
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
-        onFinish={(values) => {
-          setUser({
-            username: values.username,
-            password: values.password,
-          });
-        }}
-        onFinishFailed={() => {
-          message.error("Eksik Veri Girdiniz");
-        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item

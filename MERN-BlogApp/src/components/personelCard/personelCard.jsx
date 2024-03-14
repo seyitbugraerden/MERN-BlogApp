@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../personelCard/personelCard.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 function PersonelCard() {
   const [logIn, setLogIn] = useState({});
@@ -85,6 +84,17 @@ function PersonelCard() {
           href={logIn.threads}
         >
           <i className="bi bi-threads"></i>
+        </a>
+        <a
+          style={{
+            color: "inherit",
+          }}
+          onClick={() => {
+            localStorage.removeItem("user");
+            window.location.href = "/";
+          }}
+        >
+          <i class="bi bi-box-arrow-right"></i>
         </a>
       </div>
     </div>

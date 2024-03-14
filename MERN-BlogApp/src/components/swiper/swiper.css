@@ -27,6 +27,19 @@
     margin: 0;
 }
 
+.mySwiper .mySwiperText h2 {
+    font-size: 36px;
+    width: 30vw;
+}
+
+.mySwiper .mySwiperText p {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .mySwiper button {
     background-color: transparent;
     color: white;
@@ -40,4 +53,8 @@
 .mySwiper button:hover {
     background-color: white;
     color: #2A4B7C;
+}
+
+.mySwiper button {
+    border: 2px solid white;
 }

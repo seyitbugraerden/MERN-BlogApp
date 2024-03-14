@@ -22,7 +22,7 @@ function swiper() {
   return (
     <Swiper className="mySwiper">
       <SwiperSlide>
-        <img src="https://picsum.photos/1920/1080" alt="" />
+        <img src={blogData[0]?.img} alt="" />
         <div className="mySwiperText">
           <h2>{blogData[0]?.title}</h2>
           <p>{blogData[0]?.description}</p>
@@ -36,7 +36,7 @@ function swiper() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <img src="https://picsum.photos/1920/1080" alt="" />
+        <img src={blogData[1]?.img} alt="" />
         <div className="mySwiperText">
           <h2>{blogData[1]?.title}</h2>
           <p>{blogData[1]?.description}</p>
@@ -50,7 +50,7 @@ function swiper() {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <img src="https://picsum.photos/1920/1080" alt="" />
+        <img src={blogData[2]?.img} alt="" />
         <div className="mySwiperText">
           <h2>{blogData[2]?.title}</h2>
           <p>{blogData[2]?.description}</p>

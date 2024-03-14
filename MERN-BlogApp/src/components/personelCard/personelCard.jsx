@@ -30,10 +30,19 @@ function PersonelCard() {
           src="https://demo.htmlcodex.com/1049/personal-blog-template/img/profile.jpg"
           alt=""
         />
-        <h1>{logIn.fullname}</h1>{" "}
-        <p>{logIn.aboutme}</p>
+        <h1>{logIn.fullname}</h1> <p>{logIn.aboutme}</p>
       </div>
       <div>
+        <a
+          style={{
+            color: "inherit",
+          }}
+          onClick={() => {
+            window.location.href = "/admin";
+          }}
+        >
+          <i class="bi bi-person"></i>
+        </a>
         <a
           target="_blank"
           style={{

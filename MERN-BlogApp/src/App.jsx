@@ -25,6 +25,11 @@ function App() {
         path="/register"
         element={!user ? <RegisterPage /> : <Navigate to="/" />}
       />
+      <Route
+        path="/admin"
+        element={!user ? <RegisterPage /> : <Navigate to="/" />}
+      />
+      <Route path="*" element={<MainLayout />} />
     </Routes>
   );
 }

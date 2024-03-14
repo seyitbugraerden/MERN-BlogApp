@@ -6,6 +6,10 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+p {
+  text-align: justify;
+}
+
 @media (max-width: 972px) {
   .container {
     max-width: 90vw !important;
@@ -85,6 +89,7 @@ body {
 
 #blog-detail .img-area .text-area h2 {
   margin: 0;
+  text-align: center;
 }
 
 #blog-detail .img-area .text-area p {
@@ -97,4 +102,13 @@ body {
 
 .ant-col {
   overflow: hidden;
+}
+
+#blog-detail-page {
+  height: 100vh;
+}
+
+#blog-detail-page p {
+  font-size: 16px;
+  padding-top: 20px;
 }

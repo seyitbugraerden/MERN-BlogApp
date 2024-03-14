@@ -8,6 +8,10 @@
     position: relative;
 }
 
+.mySwiper .swiper-slide img {
+    object-fit: cover;
+}
+
 .mySwiper .mySwiperText {
     position: absolute;
     top: 50%;

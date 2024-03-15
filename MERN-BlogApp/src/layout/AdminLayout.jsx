@@ -4,7 +4,6 @@ import PersonelCard from "../components/personelCard/personelCard";
 import Banner from "../components/admin/banner/banner";
 import { useLocation } from "react-router-dom";
 import AdminUser from "../components/admin/user/adminUser";
-import AdminBlog from "../components/admin/blog/adminBlog";
 function AdminLayout() {
   const location = useLocation();
   const located = location.pathname;

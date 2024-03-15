@@ -5,6 +5,7 @@ import BlogDetailLayout from "./layout/BlogDetailLayout";
 import MainLayout from "./layout/MainLayout";
 import LoginPage from "./components/loginPage/loginPage";
 import AdminLayout from "./layout/AdminLayout";
+import AdminBlogDetail from "./components/admin/blogDetail/adminBlogDetail";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -31,6 +32,7 @@ function App() {
         element={user ? <AdminLayout /> : <Navigate to="/login" />}
       />
       <Route path="/admin/*" element={<AdminLayout />} />
+      <Route path="/admin/blog/:id" element={<AdminBlogDetail/>}/>
       <Route path="*" element={<MainLayout />} />
     </Routes>
   );

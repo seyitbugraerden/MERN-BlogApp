@@ -1,49 +1,70 @@
 import React, { useEffect } from "react";
-import { Button, DatePicker, Form, Input } from "antd";
+import { Button, Form, Input, message } from "antd";
 import axios from "axios";
 
 function AdminUser() {
   const userId = JSON.parse(localStorage.getItem("user"));
   const [form] = Form.useForm();
-  const validateDOB = (_, value) => {
-    const dob = new Date(value);
-    const age = calculateAge(dob);
-    if (age >= 18) {
-      return Promise.resolve();
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/api/user/${userId}`
+        );
+        const userData = response.data;
+        form.setFieldsValue({
+          fullname: userData.fullname,
+          username: userData.username,
+          password: userData.password,
+          aboutme: userData.aboutme,
+          image: userData.image,
+          facebook: userData.facebook,
+          instagram: userData.instagram,
+          twitter: userData.twitter,
+          linkedin: userData.linkedin,
+          threads: userData.threads,
+        });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, [form, userId]);
+
+  const onFinish = async (values) => {
+    try {
+      await axios.put(`http://localhost:5000/api/user/${userId}`, values);
+      message.success("Güncelleme Başarılı");
+      setTimeout(() => {
+        window.location.href = "/admin";
+      }, 500);
+    } catch (error) {
+      console.error("Error updating user:", error);
+      message.error("Kullanıcı Hatası");
     }
-    return Promise.reject(new Error("18 yaşından küçükler kayıt olamaz."));
   };
-  useEffect(async () => {
-    const response = await axios.get(
-      `http://localhost:5000/api/user/${userId}`
-    );
-    form.setFieldsValue({
-      fullname: response.data.fullname,
-      username: response.data.username,
-      password: response.data.password,
-      aboutme: response.data.aboutme,
-    });
-  }, []);
+
+  const onFinishFailed = () => {
+    message.error("Boş Veri Gönderemezsiniz.");
+  };
 
   return (
     <Form
+      form={form}
       name="basic"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}
-      onFinish={(values) => {
-        console.log(values);
-      }}
-      onFinishFailed={() => {
-        console.log("Error");
-      }}
-      form={form}
+      onFinish={onFinish}
+      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <Form.Item
         label="Ad - Soyad"
         name="fullname"
-        rules={[{ required: true, message: "Please input your username!" }]}
+        rules={[{ required: true, message: "Please input your full name!" }]}
       >
         <Input />
       </Form.Item>
@@ -51,7 +72,7 @@ function AdminUser() {
       <Form.Item
         label="Kullanıcı Adı"
         name="username"
-        rules={[{ required: true, message: "Please input your password!" }]}
+        rules={[{ required: true, message: "Please input your username!" }]}
       >
         <Input />
       </Form.Item>
@@ -59,12 +80,7 @@ function AdminUser() {
       <Form.Item
         label="Şifre"
         name="password"
-        rules={[
-          {
-            required: true,
-            message: "Lütfen geçerli bir şifre giriniz.",
-          },
-        ]}
+        rules={[{ required: true, message: "Please input your password!" }]}
       >
         <Input.Password />
       </Form.Item>
@@ -73,18 +89,103 @@ function AdminUser() {
         label="Hakkımda"
         name="aboutme"
         rules={[
-          {
-            required: true,
-            message: "Lütfen geçerli bir hakkımda yazısı yazınız.",
-          },
+          { required: true, message: "Please input something about yourself!" },
         ]}
       >
         <Input.TextArea />
       </Form.Item>
+      <Form.Item
+        label="ImageLink "
+        name="image"
+        rules={[
+          {
+            required: false,
+            message: "Lütfen geçerli bir avatar image ekleyiniz.",
+          },
+        ]}
+      >
+        <Input />
+        {/* <Upload
+            accept=".png,.jpeg,.jpg"
+            name="avatar"
+            listType="picture"
+            maxCount={1}
+          >
+            <Button>+</Button>
+          </Upload> */}
+      </Form.Item>
+      <Form.Item
+        label="Facebook"
+        name="facebook"
+        rules={[
+          {
+            type: "url",
+            required: false,
+            message: "Lütfen geçerli bir Facebook linki giriniz.",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
 
+      <Form.Item
+        label="Instagram"
+        name="instagram"
+        rules={[
+          {
+            type: "url",
+            required: false,
+            message: "Lütfen geçerli bir Instagram linki giriniz.",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Twitter"
+        name="twitter"
+        rules={[
+          {
+            type: "url",
+            required: false,
+            message: "Lütfen geçerli bir Facebook linki giriniz.",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Linkedin"
+        name="linkedin"
+        rules={[
+          {
+            type: "url",
+            required: false,
+            message: "Lütfen geçerli bir Linkedin linki giriniz.",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Threads"
+        name="threads"
+        rules={[
+          {
+            type: "url",
+            required: null,
+            message: "Lütfen geçerli bir Threads linki giriniz.",
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Kaydet
         </Button>
       </Form.Item>
     </Form>

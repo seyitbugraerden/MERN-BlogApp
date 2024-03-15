@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Table, Button } from "antd";
 import PersonelCard from "../components/personelCard/personelCard";
-import Swiper from "../components/swiper/swiper";
+import Banner from "../components/admin/banner/banner"
 import { useLocation } from "react-router-dom";
 import AdminUser from "../components/admin/user/adminUser";
 function AdminLayout() {
@@ -54,6 +54,7 @@ function AdminLayout() {
         </Col>
         <Col span={1}></Col>
         <Col xs={24} md={16}>
+          <Banner/>
           {located === "/admin/user" ? (
             <AdminUser />
           ) : (

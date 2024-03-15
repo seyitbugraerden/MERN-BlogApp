@@ -20,8 +20,6 @@ function AdminUser() {
     form.setFieldsValue({
       fullname: response.data.fullname,
       username: response.data.username,
-      email: response.data.email,
-      birthday: response.data.birthday,
       password: response.data.password,
       aboutme: response.data.aboutme,
     });
@@ -56,37 +54,6 @@ function AdminUser() {
         rules={[{ required: true, message: "Please input your password!" }]}
       >
         <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="E-Posta"
-        name="email"
-        rules={[
-          {
-            required: true,
-            message: "Lütfen geçerli bir E-Posta giriniz.",
-          },
-          {
-            type: "email",
-            message: "Lütfen geçerli bir e-posta adresi giriniz.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Doğum Tarihi"
-        name="birthday"
-        rules={[
-          {
-            required: true,
-            message: "Lütfen geçerli bir doğum tarihi giriniz.",
-          },
-          { validator: validateDOB },
-        ]}
-      >
-        <DatePicker />
       </Form.Item>
 
       <Form.Item

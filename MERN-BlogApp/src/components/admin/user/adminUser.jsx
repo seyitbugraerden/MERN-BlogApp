@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
-import { Button, Form, Input, message } from "antd";
+import { Button, Col, Form, Input, Row, message } from "antd";
 import axios from "axios";
+import Banner from "../banner/banner";
+import PersonelCard from "../../personelCard/personelCard";
 
 function AdminUser() {
   const userId = JSON.parse(localStorage.getItem("user"));
@@ -46,66 +48,81 @@ function AdminUser() {
     }
   };
 
-  const onFinishFailed = () => {
-    message.error("Boş Veri Gönderemezsiniz.");
-  };
-
   return (
-    <Form
-      form={form}
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      style={{ maxWidth: 600 }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Ad - Soyad"
-        name="fullname"
-        rules={[{ required: true, message: "Please input your full name!" }]}
-      >
-        <Input />
-      </Form.Item>
+    <div className="container">
+      <Row>
+        <Col xs={24} md={7}>
+          <PersonelCard />
+        </Col>
+        <Col span={1}></Col>
+        <Col xs={24} md={16}>
+          <Banner />
+          <Form
+            form={form}
+            name="basic"
+            labelCol={{ span: 8 }}
+            wrapperCol={{ span: 16 }}
+            style={{ maxWidth: 600 }}
+            onFinish={onFinish}
+            onFinishFailed={() => {
+              message.error("Boş Veri Gönderemezsiniz.");
+            }}
+            autoComplete="off"
+          >
+            <Form.Item
+              label="Ad - Soyad"
+              name="fullname"
+              rules={[
+                { required: true, message: "Please input your full name!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-      <Form.Item
-        label="Kullanıcı Adı"
-        name="username"
-        rules={[{ required: true, message: "Please input your username!" }]}
-      >
-        <Input />
-      </Form.Item>
+            <Form.Item
+              label="Kullanıcı Adı"
+              name="username"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-      <Form.Item
-        label="Şifre"
-        name="password"
-        rules={[{ required: true, message: "Please input your password!" }]}
-      >
-        <Input.Password />
-      </Form.Item>
+            <Form.Item
+              label="Şifre"
+              name="password"
+              rules={[
+                { required: true, message: "Please input your password!" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
 
-      <Form.Item
-        label="Hakkımda"
-        name="aboutme"
-        rules={[
-          { required: true, message: "Please input something about yourself!" },
-        ]}
-      >
-        <Input.TextArea />
-      </Form.Item>
-      <Form.Item
-        label="ImageLink "
-        name="image"
-        rules={[
-          {
-            required: false,
-            message: "Lütfen geçerli bir avatar image ekleyiniz.",
-          },
-        ]}
-      >
-        <Input />
-        {/* <Upload
+            <Form.Item
+              label="Hakkımda"
+              name="aboutme"
+              rules={[
+                {
+                  required: true,
+                  message: "Please input something about yourself!",
+                },
+              ]}
+            >
+              <Input.TextArea />
+            </Form.Item>
+            <Form.Item
+              label="ImageLink "
+              name="image"
+              rules={[
+                {
+                  required: false,
+                  message: "Lütfen geçerli bir avatar image ekleyiniz.",
+                },
+              ]}
+            >
+              <Input />
+              {/* <Upload
             accept=".png,.jpeg,.jpg"
             name="avatar"
             listType="picture"
@@ -113,82 +130,85 @@ function AdminUser() {
           >
             <Button>+</Button>
           </Upload> */}
-      </Form.Item>
-      <Form.Item
-        label="Facebook"
-        name="facebook"
-        rules={[
-          {
-            type: "url",
-            required: false,
-            message: "Lütfen geçerli bir Facebook linki giriniz.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+            </Form.Item>
+            <Form.Item
+              label="Facebook"
+              name="facebook"
+              rules={[
+                {
+                  type: "url",
+                  required: false,
+                  message: "Lütfen geçerli bir Facebook linki giriniz.",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-      <Form.Item
-        label="Instagram"
-        name="instagram"
-        rules={[
-          {
-            type: "url",
-            required: false,
-            message: "Lütfen geçerli bir Instagram linki giriniz.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+            <Form.Item
+              label="Instagram"
+              name="instagram"
+              rules={[
+                {
+                  type: "url",
+                  required: false,
+                  message: "Lütfen geçerli bir Instagram linki giriniz.",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-      <Form.Item
-        label="Twitter"
-        name="twitter"
-        rules={[
-          {
-            type: "url",
-            required: false,
-            message: "Lütfen geçerli bir Facebook linki giriniz.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+            <Form.Item
+              label="Twitter"
+              name="twitter"
+              rules={[
+                {
+                  type: "url",
+                  required: false,
+                  message: "Lütfen geçerli bir Facebook linki giriniz.",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-      <Form.Item
-        label="Linkedin"
-        name="linkedin"
-        rules={[
-          {
-            type: "url",
-            required: false,
-            message: "Lütfen geçerli bir Linkedin linki giriniz.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+            <Form.Item
+              label="Linkedin"
+              name="linkedin"
+              rules={[
+                {
+                  type: "url",
+                  required: false,
+                  message: "Lütfen geçerli bir Linkedin linki giriniz.",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
 
-      <Form.Item
-        label="Threads"
-        name="threads"
-        rules={[
-          {
-            type: "url",
-            required: null,
-            message: "Lütfen geçerli bir Threads linki giriniz.",
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Kaydet
-        </Button>
-      </Form.Item>
-    </Form>
+            <Form.Item
+              label="Threads"
+              name="threads"
+              rules={[
+                {
+                  type: "url",
+                  required: null,
+                  message: "Lütfen geçerli bir Threads linki giriniz.",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+              <Button type="primary" htmlType="submit">
+                Kaydet
+              </Button>
+            </Form.Item>
+          </Form>
+        </Col>
+      </Row>
+    </div>
   );
 }
 

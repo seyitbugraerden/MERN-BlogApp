@@ -1,6 +1,8 @@
-import { Button, Table, message } from "antd";
+import { Button, Col, Row, Table, message } from "antd";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Banner from "../banner/banner";
+import PersonelCard from "../../personelCard/personelCard";
 
 function AdminBlog() {
   const [blogData, setBlogData] = useState([]);
@@ -43,10 +45,7 @@ function AdminBlog() {
     },
     {
       title: (
-        <a
-          primary
-          onClick={() => (window.location.href = `/admin/blog/add`)}
-        >
+        <a primary onClick={() => (window.location.href = `/admin/blog/add`)}>
           Yeni Blog
         </a>
       ),
@@ -62,11 +61,23 @@ function AdminBlog() {
   ];
 
   return (
-    <div>
-      <Table
-        dataSource={blogData.map((item, index) => ({ ...item, key: index }))}
-        columns={columns}
-      />
+    <div className="container">
+      <Row>
+        <Col xs={24} md={7}>
+          <PersonelCard />
+        </Col>
+        <Col span={1}></Col>
+        <Col xs={24} md={16}>
+          <Banner />
+          <Table
+            dataSource={blogData.map((item, index) => ({
+              ...item,
+              key: index,
+            }))}
+            columns={columns}
+          />
+        </Col>
+      </Row>
     </div>
   );
 }

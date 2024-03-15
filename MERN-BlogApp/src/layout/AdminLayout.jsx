@@ -20,7 +20,6 @@ function AdminLayout() {
       blog: "Açık",
     },
   ];
-
   const columns = [
     {
       title: "Sayfa",
@@ -56,13 +55,7 @@ function AdminLayout() {
         <Col span={1}></Col>
         <Col xs={24} md={16}>
           <Banner />
-          {located === "/admin/user" ? (
-            <AdminUser />
-          ) : located === "/admin/blog" ? (
-            <AdminBlog />
-          ) : (
-            <Table dataSource={dataSource} columns={columns} />
-          )}
+          <Table dataSource={dataSource} columns={columns} />
         </Col>
       </Row>
     </div>

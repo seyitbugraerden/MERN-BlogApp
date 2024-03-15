@@ -4,7 +4,7 @@ import axios from "axios";
 
 function AdminBlog() {
   const [blogData, setBlogData] = useState([]);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,7 +44,7 @@ function AdminBlog() {
     {
       title: "İşlem",
       render: (text, record) => (
-        <Button type="primary" onClick={() => console.log(record._id)}>
+        <Button type="primary" onClick={() => window.location.href=`/admin/blog/${record._id}`}>
           İncele
         </Button>
       ),

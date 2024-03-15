@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "../personelCard/personelCard.css";
 import axios from "axios";
-import { Flex } from "antd";
 
 function PersonelCard() {
   const [logIn, setLogIn] = useState({});
-
+  const location = useLocation();
   useEffect(() => {
     async function fetchUserData() {
       try {
@@ -28,19 +28,34 @@ function PersonelCard() {
     <div className="personelCard">
       <div>
         <img src={logIn.image} alt="" />
-        <h1>{logIn.fullname}</h1> <p>{logIn.aboutme}</p>
+        <h1>{logIn.fullname}</h1>
+        <p>{logIn.aboutme}</p>
       </div>
       <div>
-        <a
-          style={{
-            color: "inherit",
-          }}
-          onClick={() => {
-            window.location.href = "/admin";
-          }}
-        >
-          <i className="bi bi-person"></i>
-        </a>
+        {location.pathname === "/admin" ? (
+          <a
+            style={{
+              color: "inherit",
+            }}
+            onClick={() => {
+              window.location.href = "/";
+            }}
+          >
+            <i className="bi bi-house"></i>
+          </a>
+        ) : (
+          <a
+            style={{
+              color: "inherit",
+            }}
+            onClick={() => {
+              window.location.href = "/admin";
+            }}
+          >
+            <i className="bi bi-person"></i>
+          </a>
+        )}
+
         <a
           target="_blank"
           style={{

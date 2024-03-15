@@ -4,6 +4,7 @@ import RegisterPage from "./components/registerPage/registerPage";
 import BlogDetailLayout from "./layout/BlogDetailLayout";
 import MainLayout from "./layout/MainLayout";
 import LoginPage from "./components/loginPage/loginPage";
+import AdminLayout from "./layout/AdminLayout";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -27,7 +28,7 @@ function App() {
       />
       <Route
         path="/admin"
-        element={!user ? <RegisterPage /> : <Navigate to="/" />}
+        element={user ? <AdminLayout /> : <Navigate to="/login" />}
       />
       <Route path="*" element={<MainLayout />} />
     </Routes>

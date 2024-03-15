@@ -7,7 +7,6 @@ import axios from "axios";
 
 function AdminBlogDetail() {
   const { id } = useParams();
-  const [blog, setBlog] = useState({});
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -16,7 +15,6 @@ function AdminBlogDetail() {
         const response = await axios.get(
           `http://localhost:5000/api/blog/${id}`
         );
-        setBlog(response.data);
         form.setFieldsValue(response.data); // Initialize form with fetched data
       } catch (error) {
         console.error("Error fetching blog details:", error);

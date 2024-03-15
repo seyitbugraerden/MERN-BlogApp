@@ -42,9 +42,19 @@ function AdminBlog() {
       key: "description",
     },
     {
-      title: "İşlem",
+      title: (
+        <a
+          primary
+          onClick={() => (window.location.href = `/admin/blog/add`)}
+        >
+          Yeni Blog
+        </a>
+      ),
       render: (text, record) => (
-        <Button type="primary" onClick={() => window.location.href=`/admin/blog/${record._id}`}>
+        <Button
+          type="primary"
+          onClick={() => (window.location.href = `/admin/blog/${record._id}`)}
+        >
           İncele
         </Button>
       ),

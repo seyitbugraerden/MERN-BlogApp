@@ -30,6 +30,7 @@ function App() {
         path="/admin"
         element={user ? <AdminLayout /> : <Navigate to="/login" />}
       />
+      <Route path="/admin/*" element={<AdminLayout />} />
       <Route path="*" element={<MainLayout />} />
     </Routes>
   );

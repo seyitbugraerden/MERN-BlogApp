@@ -13,7 +13,9 @@ function AdminBlogDetail() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/blog/${id}`);
+        const response = await axios.get(
+          `http://localhost:5000/api/blog/${id}`
+        );
         setBlog(response.data);
         form.setFieldsValue(response.data); // Initialize form with fetched data
       } catch (error) {
@@ -29,23 +31,26 @@ function AdminBlogDetail() {
     try {
       await axios.put(`http://localhost:5000/api/blog/${id}`, values);
       message.success("Blog updated successfully.");
+      setTimeout(() => {
+        window.location.href = "/admin/blog";
+      }, 500);
     } catch (error) {
       console.error("Error updating blog:", error);
       message.error("Failed to update blog.");
     }
   };
 
-  const deleteBlog = async ()=>{
+  const deleteBlog = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/blog/${id}`)
-      message.success('Silme İşlemi Başarılı')
+      await axios.delete(`http://localhost:5000/api/blog/${id}`);
+      message.success("Silme İşlemi Başarılı");
       setTimeout(() => {
-        window.location.href="/admin/blog"
+        window.location.href = "/admin/blog";
       }, 500);
     } catch (error) {
-      console.log('Error')
+      console.log("Error");
     }
-  }
+  };
   return (
     <div className="container">
       <Row>
@@ -89,11 +94,18 @@ function AdminBlogDetail() {
               <Input.TextArea />
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
-              <div style={{ display: "flex", justifyContent: "start", gap: "5px" }}>
+              <div
+                style={{ display: "flex", justifyContent: "start", gap: "5px" }}
+              >
                 <Button type="primary" htmlType="submit">
                   Kaydet
                 </Button>
-                <Button style={{ background: "red", color: "white" }} onClick={deleteBlog}>Sil</Button>
+                <Button
+                  style={{ background: "red", color: "white" }}
+                  onClick={deleteBlog}
+                >
+                  Sil
+                </Button>
               </div>
             </Form.Item>
           </Form>

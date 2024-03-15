@@ -43,8 +43,7 @@ function AdminUser() {
         window.location.href = "/admin";
       }, 500);
     } catch (error) {
-      console.error("Error updating user:", error);
-      message.error("Kullanıcı Hatası");
+      message.error("Güncelleme Başarısız");
     }
   };
 
@@ -111,6 +110,7 @@ function AdminUser() {
             >
               <Input.TextArea />
             </Form.Item>
+
             <Form.Item
               label="ImageLink "
               name="image"
@@ -131,6 +131,7 @@ function AdminUser() {
             <Button>+</Button>
           </Upload> */}
             </Form.Item>
+
             <Form.Item
               label="Facebook"
               name="facebook"
@@ -200,6 +201,7 @@ function AdminUser() {
             >
               <Input />
             </Form.Item>
+
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
               <Button type="primary" htmlType="submit">
                 Kaydet

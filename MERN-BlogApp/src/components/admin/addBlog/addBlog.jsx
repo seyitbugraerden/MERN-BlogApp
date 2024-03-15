@@ -56,6 +56,9 @@ function AddBlog() {
             style={{ maxWidth: 600 }}
             autoComplete="off"
             onFinish={handleFormSubmit}
+            onFinishFailed={() => {
+              message.error("Blog Eklenemedi.");
+            }}
           >
             <Form.Item
               label="Blog Başlığı"
@@ -69,6 +72,7 @@ function AddBlog() {
             >
               <Input />
             </Form.Item>
+
             <Form.Item
               label="Blog Görsel Linki"
               name="img"
@@ -81,6 +85,7 @@ function AddBlog() {
             >
               <Input />
             </Form.Item>
+
             <Form.Item
               label="Blog Yazısı"
               name="description"
@@ -93,6 +98,7 @@ function AddBlog() {
             >
               <Input.TextArea />
             </Form.Item>
+
             <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
               <div
                 style={{ display: "flex", justifyContent: "start", gap: "5px" }}

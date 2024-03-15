@@ -15,13 +15,11 @@ function AdminBlogDetail() {
         const response = await axios.get(
           `http://localhost:5000/api/blog/${id}`
         );
-        form.setFieldsValue(response.data); // Initialize form with fetched data
+        form.setFieldsValue(response.data);
       } catch (error) {
-        console.error("Error fetching blog details:", error);
-        message.error("Failed to fetch blog details.");
+        message.error("Blog Verileri Getirilemedi.");
       }
     };
-
     fetchData();
   }, [form, id]);
 
@@ -33,8 +31,7 @@ function AdminBlogDetail() {
         window.location.href = "/admin/blog";
       }, 500);
     } catch (error) {
-      console.error("Error updating blog:", error);
-      message.error("Failed to update blog.");
+      message.error("Blog güncellenemedi.");
     }
   };
 
@@ -46,7 +43,7 @@ function AdminBlogDetail() {
         window.location.href = "/admin/blog";
       }, 500);
     } catch (error) {
-      console.log("Error");
+      message.error("Silme İşlemi Başarısız");
     }
   };
   return (
@@ -79,6 +76,7 @@ function AdminBlogDetail() {
             >
               <Input />
             </Form.Item>
+
             <Form.Item
               label="Blog Görsel Linki"
               name="img"
@@ -91,6 +89,7 @@ function AdminBlogDetail() {
             >
               <Input />
             </Form.Item>
+
             <Form.Item
               label="Blog Yazısı"
               name="description"
@@ -103,6 +102,7 @@ function AdminBlogDetail() {
             >
               <Input.TextArea />
             </Form.Item>
+
             <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
               <div
                 style={{ display: "flex", justifyContent: "start", gap: "5px" }}

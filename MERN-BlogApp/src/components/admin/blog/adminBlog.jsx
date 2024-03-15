@@ -66,7 +66,9 @@ function AdminBlog() {
         <Col xs={24} md={7}>
           <PersonelCard />
         </Col>
+
         <Col span={1}></Col>
+
         <Col xs={24} md={16}>
           <Banner />
           <Table

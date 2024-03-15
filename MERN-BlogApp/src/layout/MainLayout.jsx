@@ -22,7 +22,6 @@ function MainLayout() {
           console.error("Error fetching blog data:", error);
         });
     };
-
     fetchItems();
   }, []);
 

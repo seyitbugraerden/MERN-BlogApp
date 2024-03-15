@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import "../personelCard/personelCard.css";
 import axios from "axios";
+import "../personelCard/personelCard.css";
 
 function PersonelCard() {
   const [logIn, setLogIn] = useState({});
@@ -23,7 +23,6 @@ function PersonelCard() {
     }
     fetchUserData();
   }, []);
-
   return (
     <div className="personelCard">
       <div>
@@ -66,6 +65,7 @@ function PersonelCard() {
         >
           <i className="bi bi-facebook"></i>
         </a>
+
         <a
           target="_blank "
           style={{
@@ -76,6 +76,7 @@ function PersonelCard() {
         >
           <i className="bi bi-twitter-x"></i>
         </a>
+
         <a
           target="_blank "
           style={{
@@ -86,6 +87,7 @@ function PersonelCard() {
         >
           <i className="bi bi-linkedin"></i>
         </a>
+
         <a
           target="_blank "
           style={{
@@ -96,6 +98,7 @@ function PersonelCard() {
         >
           <i className="bi bi-instagram"></i>
         </a>
+
         <a
           target="_blank "
           style={{
@@ -106,6 +109,7 @@ function PersonelCard() {
         >
           <i className="bi bi-threads"></i>
         </a>
+
         <a
           style={{
             color: "inherit",

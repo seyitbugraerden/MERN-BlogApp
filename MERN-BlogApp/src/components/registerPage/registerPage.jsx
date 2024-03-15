@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Col,
-  DatePicker,
-  Form,
-  Input,
-  Row,
-  Upload,
-  message,
-} from "antd";
+import { Button, Col, DatePicker, Form, Input, Row, message } from "antd";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 function calculateAge(birthday) {
@@ -16,28 +7,19 @@ function calculateAge(birthday) {
   const ageDate = new Date(ageDifferenceMs);
   return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
-
 function RegisterPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const onFinish = async (values) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/user",
-        values
-      );
+      await axios.post("http://localhost:5000/api/user", values);
       message.success("Kayıt Oldunuz");
       setTimeout(() => {
-        navigate("/login");;
+        navigate("/login");
       }, 1000);
     } catch (error) {
       console.error("Error:", error);
     }
   };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
-  };
-
   const validateDOB = (_, value) => {
     const dob = new Date(value);
     const age = calculateAge(dob);
@@ -58,7 +40,9 @@ function RegisterPage() {
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinishFailed={() => {
+          console.log("Failed:", errorInfo);
+        }}
         autoComplete="off"
       >
         <Row>
@@ -133,13 +117,6 @@ function RegisterPage() {
               <Input.Password />
             </Form.Item>
 
-            {/* <Form.Item
-          label="Şifre (Tekrar)"
-          name="passwordCheck"
-          rules={[{ required: true, message: "Lütfen Şifrenizi Doğrulayın." }]}
-        >
-          <Input.Password />
-        </Form.Item> */}
             <Form.Item
               label="Hakkımda"
               name="aboutme"
@@ -165,15 +142,8 @@ function RegisterPage() {
               ]}
             >
               <Input />
-              {/* <Upload
-            accept=".png,.jpeg,.jpg"
-            name="avatar"
-            listType="picture"
-            maxCount={1}
-          >
-            <Button>+</Button>
-          </Upload> */}
             </Form.Item>
+
             <Form.Item
               label="Facebook"
               name="facebook"

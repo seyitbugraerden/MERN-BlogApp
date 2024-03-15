@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import axios from "axios";
 import "swiper/css";
 import "./swiper.css";
-import axios from "axios";
 function swiper() {
   const [blogData, setBlogData] = useState("");
   useEffect(() => {

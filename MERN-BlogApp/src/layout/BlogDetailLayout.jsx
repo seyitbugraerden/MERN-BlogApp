@@ -19,8 +19,7 @@ function BlogDetailLayout() {
         console.error("Error fetching blogs:", error);
       }
     };
-
-    fetchItems(); // Call the async function immediately
+    fetchItems();
   }, []);
 
   return (

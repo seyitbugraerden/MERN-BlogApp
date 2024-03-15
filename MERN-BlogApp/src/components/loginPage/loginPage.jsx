@@ -4,17 +4,17 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function LoginRegister() {
+  const [savedUsers, setSavedUsers] = useState([]);
   const [user, setUser] = useState({
     username: "",
     password: "",
   });
-  const [savedUsers, setSavedUsers] = useState([]);
 
   useEffect(() => {
     axios
       .get("http://localhost:5000/api/user")
       .then((res) => setSavedUsers(res.data))
-      .catch((error) => console.error("Error fetching users:", error));
+      .catch(() => console.error("Error"));
   }, []);
 
   const onFinish = (values) => {
@@ -27,7 +27,6 @@ function LoginRegister() {
       (item) =>
         item.username === values.username && item.password === values.password
     );
-
     if (matchedUser) {
       message.success("Giriş Başarılı");
       localStorage.setItem("user", JSON.stringify(matchedUser._id));
@@ -38,11 +37,6 @@ function LoginRegister() {
       message.error("Kullanıcı Adı veya Şifre Hatalı");
     }
   };
-
-  const onFinishFailed = () => {
-    message.error("Eksik Veri Girdiniz");
-  };
-
   return (
     <div className="loginArea">
       <h2 style={{ fontSize: "16px" }}>Giriş Yap</h2>
@@ -54,7 +48,9 @@ function LoginRegister() {
         style={{ maxWidth: 600 }}
         initialValues={{ remember: true }}
         onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinishFailed={() => {
+          message.error("Eksik Veri Girdiniz");
+        }}
         autoComplete="off"
       >
         <Form.Item
@@ -79,7 +75,7 @@ function LoginRegister() {
         >
           <Input.Password />
         </Form.Item>
-        <br />
+
         <Form.Item wrapperCol={{ offset: 0, span: 24 }}>
           <Button type="primary" htmlType="submit" style={{ width: "100%" }}>
             Giriş Yap

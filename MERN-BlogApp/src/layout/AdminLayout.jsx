@@ -1,9 +1,10 @@
 import React from "react";
 import { Row, Col, Table, Button } from "antd";
 import PersonelCard from "../components/personelCard/personelCard";
-import Banner from "../components/admin/banner/banner"
+import Banner from "../components/admin/banner/banner";
 import { useLocation } from "react-router-dom";
 import AdminUser from "../components/admin/user/adminUser";
+import AdminBlog from "../components/admin/blog/adminBlog";
 function AdminLayout() {
   const location = useLocation();
   const located = location.pathname;
@@ -54,9 +55,11 @@ function AdminLayout() {
         </Col>
         <Col span={1}></Col>
         <Col xs={24} md={16}>
-          <Banner/>
+          <Banner />
           {located === "/admin/user" ? (
             <AdminUser />
+          ) : located === "/admin/blog" ? (
+            <AdminBlog />
           ) : (
             <Table dataSource={dataSource} columns={columns} />
           )}

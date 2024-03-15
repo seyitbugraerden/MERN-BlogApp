@@ -80,6 +80,18 @@ function AdminBlogDetail() {
               <Input />
             </Form.Item>
             <Form.Item
+              label="Blog Görsel Linki"
+              name="img"
+              rules={[
+                {
+                  required: true,
+                  message: "Lütfen geçerli bir blog başlığı giriniz.",
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
               label="Blog Yazısı"
               name="description"
               rules={[

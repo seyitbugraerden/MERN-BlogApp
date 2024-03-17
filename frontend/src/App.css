@@ -57,7 +57,7 @@ p {
   font-size: 10px;
 }
 
-.loginArea .ant-form-item-label > label {
+.loginArea .ant-form-item-label>label {
   font-size: 12px;
   text-align: start;
 }
@@ -112,6 +112,7 @@ p {
   font-size: 16px;
   padding-top: 20px;
 }
+
 .ant-table-row .ant-table-cell:nth-child(1) {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -120,6 +121,7 @@ p {
   text-overflow: ellipsis;
   max-height: 4em;
 }
+
 .ant-table-row .ant-table-cell:nth-child(3) {
   display: -webkit-box;
   -webkit-line-clamp: 2;
